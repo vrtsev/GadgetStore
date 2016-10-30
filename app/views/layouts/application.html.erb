@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mystore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<%= render partial: "partials/navbar" %>
+  	<%= render partial: "partials/header" %>
+  	<div class="container body"><%= yield %></div>
+
+  	<div id="footer">
+	  	<hr />
+	  	<div class="container" id="footer">GadgetStore by Vadim, 2016. Все права защищены    E-mail: v.rtsev@gmail.com</div>
+	  </div>
+
+  </body>
+</html>

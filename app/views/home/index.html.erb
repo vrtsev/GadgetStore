@@ -1,0 +1,14 @@
+<%= render partial: "partials/category_options" %>
+<br />
+<div class="row">
+	<% @items.each do |i| %>
+	  <div class="col-md-3">
+		  <div class="panel panel-default">
+			  <div class="panel-body">
+			    <%= i.name %>
+			    <%= i.description %>
+			  </div>
+			</div>
+		</div>
+  <% end %>
+</div>
