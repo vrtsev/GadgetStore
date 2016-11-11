@@ -2,8 +2,9 @@
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def new
-    @total = calculate_total
-    @cart = session[:cart]
+    @cart = Cart.find(@s[0])
+    @items = Cart.find(@s[0]).items
+    @total = @cart.total_price
     @order = Order.new
   end
 
@@ -12,7 +13,7 @@
     @cart = Cart.find(@s[0])
     @order.items << @cart.items
     @s.clear
-    set_cart
+
     #НЕ ГОТОВО!!!    
 
     respond_to do |format|

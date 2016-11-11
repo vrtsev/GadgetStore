@@ -1,25 +1,51 @@
-<p id="notice"><%= notice %></p>
+﻿<div><h1><%= @item.name %></h1></div>
+<br />
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<div class="row">
+  <div class="col-md-5"><p text-align="center;"><%= "Тут будет картинка" %></p></div> 
+  <!-- #image_tag @item.photo.url(:large) -->
+  <div class="col-md-7">
+    <div class="panel panel-default">
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+      <div class="panel-body">
+        
+        <% if @item.available %>
+          <h3><span class="label label-success">Товар в наличии</span></h3>
+        <% else %>
+          <h3><span class="label label-danger">Нет в наличии</span></h3>
+        <% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+        <h3>Цена: <%= @item.price %></h3>
+        <h3> О товаре: </h3>
+        <%= @item.description %>
 
-<p>
-  <strong>Available:</strong>
-  <%= @item.available %>
-</p>
+      </div>
+      <div class="panel-footer">
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
-<%= link_to 'Добавить в корзину', "/cart/add/#{@item.id}", method: :post, class: "btn btn-success" %>
+        <div class="row">
+          <div class="col-md-7"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Рейтинг: 0 </button>
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+              <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+            </div>
+
+          </div>
+          <div class="col-md-2"><%= link_to "Вернуться", root_path, class: "btn btn-default" %></div>
+          <div class="col-md-1">
+            <% if @item.available %>
+              <%= button_to "В корзину", "/cart/add/#{@item.id}", method: :post %>
+            <% else %>
+              <%= button_to "Нет в наличии", "/#", class: "btn btn-danger", disabled: "disabled", method: :get %>
+            <% end %>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<hr>
+
+<br />

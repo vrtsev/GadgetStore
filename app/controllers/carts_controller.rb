@@ -3,6 +3,7 @@
   before_action :set_cart
 
   def show
+    @total = @cart.total_price
     @items = @cart.items
   end
 

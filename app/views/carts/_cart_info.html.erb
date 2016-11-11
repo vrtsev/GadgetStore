@@ -8,10 +8,9 @@
         <h3>Кол-во товаров: <%= @items.count %></h3>
         <h3>Суммарная стоимость: <%= @total %></h3>
         <h3>Скидка\Акция: </h3>
-        <h3>ИТОГО: </h3>
+        <h3>ИТОГО: ДОРАБОТАТЬ : <%= @total %></h3>
         <%= link_to 'Оформить заказ', new_order_path, class: 'btn btn-success' %>
         <%= link_to 'Очистить корзину', cart_clear_path, class: 'btn btn-danger' %>
       </div>
     </div>
   </div>
-<!--  -->
