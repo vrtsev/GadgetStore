@@ -1,0 +1,19 @@
+<!-- navbar with categories -->
+<nav class="navbar navbar-default" id="category_options">
+  <div class="container">
+
+	    <ul class="nav navbar-nav">
+	      <li><%= link_to 'Все', items_path %></li>
+	      <li><%= link_to 'Хиты', hot_items_path %></a></li>
+	      <li><%= link_to 'Новинки', newly_items_path %></li>
+	      <li><%= link_to 'Скоро в продаже', soon_items_path %></li>
+	    </ul>
+
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#">Сортировка: по популярности</a></li>
+	      <li><a href="#">Покупка в кредит</a></li>
+	      <li><a href="#">Распродажа</a></li>
+	    </ul>
+
+	</div>
+</nav>

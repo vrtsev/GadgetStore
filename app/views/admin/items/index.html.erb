@@ -1,0 +1,19 @@
+﻿<p id="notice"><%= notice %></p>
+
+<%= link_to "Добавить товар", new_admin_item_path, class: 'btn btn-success' %>
+
+<br /><br />
+<div class="row">
+  <% @items.each do |i| %>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= link_to i.name, item_path(i) %>
+          <%= i.description %>
+          <%= link_to "Изменить", edit_admin_item_path(i) %>
+          <%= link_to "Удалить", admin_item_path(i), method: :delete %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

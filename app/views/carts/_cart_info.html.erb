@@ -1,0 +1,17 @@
+﻿<!-- Right side -->
+  <div class="col-md-5" style="margin-top: 62px;">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Оформить заказ</h3>
+      </div>
+      <div class="panel-body">
+        <h3>Кол-во товаров: <%= @items.count %></h3>
+        <h3>Суммарная стоимость: <%= @total %></h3>
+        <h3>Скидка\Акция: </h3>
+        <h3>ИТОГО: </h3>
+        <%= link_to 'Оформить заказ', new_order_path, class: 'btn btn-success' %>
+        <%= link_to 'Очистить корзину', cart_clear_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+<!--  -->

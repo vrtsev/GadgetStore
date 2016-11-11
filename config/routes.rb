@@ -1,9 +1,27 @@
-Rails.application.routes.draw do
+﻿Rails.application.routes.draw do
   
-  root 'home#index'
+  # devise_for :users
+  root 'items#index'
 
-  resources :items
-  resources :orders
+  namespace :admin do 
+    resources :orders
+    resources :news
+    resources :items
+    resources :comments
+    resources :categories
+  end
+
   resources :carts
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/cart', to: 'carts#show'
+  get '/cart/clear', to: 'carts#clear'
+  post '/cart/add/:id', to: 'carts#add_to_cart'
+  delete '/cart/remove/:id', to: 'carts#remove_from_cart'
+
+  resources :orders
+  resources :items do
+    resources :comments
+  end  
+
+  get "/pages/:page" => "pages#show"
+	
 end

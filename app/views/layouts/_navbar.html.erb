@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+	  <!-- Brand and toggle get grouped for better mobile display -->
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="/"><b>SimplyStore</b></a>
+	  </div>
+
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <ul class="nav navbar-nav">
+	      <li><a href="/pages/actions">Акции</a></li>
+	      <li><a href="/pages/buy">Покупка</a></li>
+	      <li><a href="/pages/deliver">Доставка</a></li>
+	      <li><a href="/pages/warranty">Гарантия</a></li>
+	      <li><a href="/pages/contacts">Контакты</a></li>
+	    </ul>
+		      
+	    <ul class="nav navbar-nav navbar-right">
+	    	<% if false %>
+	    		<%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+	    		<%= link_to "Админ-панель", "#", class: "btn btn-danger navbar-btn" %>
+	    		<%= link_to "Корзина", show_path, class: "btn btn-success navbar-btn" %>
+	    	<% else %>
+	    		<a class="btn btn-primary navbar-btn" style='color: white;' href="/admin/items">Товары</a>
+	    		<a class="btn btn-danger navbar-btn" style='color: white;' href="/admin/orders">Заказы <span class="badge"><%= Order.count %></span></a>
+	    		<a class="btn btn-success navbar-btn" style='color: white;' href="/cart">Корзина <span class="badge"><%= Cart.find(session[:cart][0]).items.count %></span></a>
+		    <% end %>
+	    </ul>
+	  </div>
+	</div>
+</nav>

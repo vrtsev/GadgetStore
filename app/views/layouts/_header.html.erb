@@ -1,0 +1,58 @@
+<div class="container-fluid" id="background_image">
+	<div class="row">
+
+		<!-- first row -->
+	  <div class="col-md-2"></div>
+	  <div class="col-md-3"><%= image_tag("logo.png", width: '100%', id: "logo") %></div>
+	  <!-- second row -->
+	  <div class="col-md-3">
+	  	<h3><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> +3-093-96-66-22-2</h3>
+	  	<h3><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> admin@store.com</h3>
+	  	<h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Skype: beststore_kh</h3>
+	  </div>
+	  <!-- third row -->
+	  <div class="col-md-2">
+	  	<div class="panel panel-default" id="user_contacts">
+			  <div class="panel-body">
+
+
+					<%= simple_form_for(Order.new) do |f| %>
+					  <%= f.error_notification %>
+
+					  <div class="form-inputs">
+					  	<%= f.input :fullname, label: false, class: "form-control", placeholder: "Ваше имя" %>
+					    <%= f.input :phone, label: false, class: "form-control", placeholder: "Номер телефона"  %>
+					  </div>
+
+					  <div class="form-actions">
+					    <%= f.button :submit, 'Свяжитесь со мной', class: "btn btn-success" %>
+					  </div>
+					<% end %>
+
+
+
+			  </div>
+			</div>
+	  </div>
+ 	  <div class="col-md-4"></div>
+
+	</div>
+</div>
+
+<!-- navbar with categories -->
+<nav class="navbar navbar-inverse">
+  <div class="container">
+
+	    <ul class="nav navbar-nav">
+	      <li><a href="/items?category=1">Apple</a></li>
+	      <li><a href="/items?category=2">Гаджеты и аксессуары</a></li>
+	      <li><a href="/items?category=3">Мобильная связь</a></li>
+	      <li><a href="/items?category=4">Ноутбуки и планшеты</a></li>
+	      <li><a href="/items?category=5">Фото, ТВ, Видео, Аудио</a></li>
+	      <li><a href="/items?category=6">Бытовая техника</a></li>
+	      <li><a href="/items?category=7">Для спорта и отдыха</a></li>
+	      <li><a href="/items?category=8">Дача, сад, ремонт</a></li>
+	    </ul>
+
+	</div>
+</nav>
