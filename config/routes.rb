@@ -4,11 +4,11 @@
   root 'items#index'
 
   namespace :admin do 
-    resources :orders
-    resources :news
-    resources :items
+    resources :carts
     resources :comments
-    resources :categories
+    resources :items
+    resources :news
+    resources :orders
   end
 
   resources :carts

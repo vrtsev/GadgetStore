@@ -6,7 +6,12 @@
   private
 
 	  def cart_init
-      @s = session[:cart]
+      @s = session[:cart] ||= []
+      begin
+        Cart.find(session[:cart][0])
+      rescue ActiveRecord::RecordNotFound
+        session[:cart].clear
+      end
       if @s.empty?
         @cart = Cart.create
         @s << @cart.id

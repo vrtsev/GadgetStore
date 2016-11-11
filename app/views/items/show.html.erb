@@ -2,7 +2,7 @@
 <br />
 
 <div class="row">
-  <div class="col-md-5"><p text-align="center;"><%= image_tag @item.photo.url(:large) %></p></div> 
+  <div class="col-md-5"><p text-align="center;"><%= url_to_image(400, @item.image) %></p></div> 
   <div class="col-md-7">
     <div class="panel panel-default">
 

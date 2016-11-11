@@ -1,6 +1,11 @@
 ﻿class Admin::CartsController < ApplicationController
 
   before_action :set_cart
+  layout "admin"
+
+  def index
+    @carts = Cart.all
+  end
 
   def show
     @cart = @cart.items
@@ -19,6 +24,15 @@
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    if @cart.id == session[:cart][0]
+      session[:cart].clear
+    end
+    @cart.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_carts_path, notice: 'Корзина была успешно удалена'}
+      format.json { head :no_content }
+    end
   end
 
   private

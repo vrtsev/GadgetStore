@@ -1,13 +1,10 @@
 ﻿class Admin::ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  layout "admin"
+
   def index
     @items = Item.all
-  end
-
-  def show
-    @items = Item.all
-    render :index
   end
 
   def new
@@ -57,6 +54,6 @@
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :description, :available, :category, :photo)
+      params.require(:item).permit(:name, :price, :description, :available, :category, :photo, :image)
     end
 end

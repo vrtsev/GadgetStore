@@ -1,4 +1,5 @@
 ﻿class CommentsController < ApplicationController
+  layout "admin"
 
   def index
   end

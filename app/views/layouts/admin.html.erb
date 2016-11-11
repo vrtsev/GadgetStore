@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mystore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<%= render partial: "layouts/navbar" %>
+    <%= render partial: "layouts/header" %>
+
+      <!-- <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> -->
+    <div class='container-fluid'>
+      <div class="row">
+        <div class="col-md-3" style="margin-top: 2%;">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" class="active"><a href="/admin/orders">Заказы</a></li>
+            <li role="presentation"><a href="/admin/items">Товары</a></li>
+            <li role="presentation"><a href="/admin/carts">Корзины</a></li>
+            <li role="presentation"><a href="/admin/comments">Комментарии</a></li>
+            <li role="presentation"><a href="/admin/news">Новости и Статьи</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9"><%= yield %></div>
+      </div>
+    </div>
+
+  	<div id="footer">
+	  	<hr />
+	  	<div class="container" id="footer">GadgetStore by Vadim, 2016. Все права защищены    E-mail: v.rtsev@gmail.com</div>
+	  </div>
+
+  </body>
+</html>

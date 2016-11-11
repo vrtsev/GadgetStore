@@ -9,15 +9,15 @@
   end
 
   def create
-    @order = Order.new(order_params)
     @cart = Cart.find(@s[0])
-    @order.items << @cart.items
-    @s.clear
-
-    #НЕ ГОТОВО!!!    
+    @order = Order.new(order_params)
+    @order.total_price = @cart.total_price
+    @cart = Cart.find(@s[0])
+    @order.items << @cart.items  
 
     respond_to do |format|
       if @order.save
+        @cart.items.delete_all
         format.html { redirect_to root_path, notice: 'Благодарим Вас за заказ. Наш менеджмер обязательно свяжется с Вами в ближайшее время' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -35,6 +35,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:city, :phone, :fullname)
+      params.require(:order).permit(:city, :phone, :fullname, :email, :delivery_method, :pay_method, :order_comment, :status, :total_price)
     end
 end

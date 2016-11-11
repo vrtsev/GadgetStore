@@ -1,5 +1,6 @@
 ﻿class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  layout "admin"
 
   # GET /orders
   # GET /orders.json
@@ -10,6 +11,7 @@
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @cart_id = session[:cart]
   end
 
   # GET /orders/new
@@ -27,6 +29,7 @@
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    binding.pry
     @s = session[:cart]
     @s.each { |i| @order.items << Item.find(i['id']) }
 
@@ -60,7 +63,7 @@
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to admin_orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +76,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:city, :phone, :fullname)
+      params.require(:order).permit(:city, :phone, :fullname, :email, :delivery_method, :pay_method, :order_comment, :status, :total_price)
     end
 end

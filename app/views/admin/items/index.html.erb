@@ -1,19 +1,31 @@
 ﻿<p id="notice"><%= notice %></p>
 
-<%= link_to "Добавить товар", new_admin_item_path, class: 'btn btn-success' %>
+<h2 style='text-align: center;'><%= link_to 'Заказы', admin_orders_path, class: 'btn btn-default' %> <b>Список всех товаров </b> <%= link_to "Добавить товар", new_admin_item_path, class: 'btn btn-success' %>
+</h2>
 
-<br /><br />
-<div class="row">
+<table class="table table-bordered">
+  <tr class="active">
+    <th>№</th>
+    <th>Наименование</th>
+    <th>Описание</th>
+    <th>Стоимость</th>
+    <th>Наличие</th>
+    <th>Катег.</th>
+    <th>Дата обновления</th>
+    <th>Дата создания</th>
+    <th></th>
+  </tr>
   <% @items.each do |i| %>
-    <div class="col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= link_to i.name, item_path(i) %>
-          <%= i.description %>
-          <%= link_to "Изменить", edit_admin_item_path(i) %>
-          <%= link_to "Удалить", admin_item_path(i), method: :delete %>
-        </div>
-      </div>
-    </div>
+  <tr>
+    <th><%= i.id %> </th>
+    <th><%= i.name %></th>
+    <th><%= i.description %></th>
+    <th><%= i.price %></th>
+    <th><%= i.available %></th>
+    <th><%= i.category %></th>
+    <th><%= i.updated_at.strftime("%H:%M %d.%m.%y") %></th>
+    <th><%= i.created_at.strftime("%H:%M %d.%m.%y") %></th>
+    <th><%= link_to "Просмотр", item_path(i) %> <%= link_to "Изменить", edit_admin_item_path(i) %> <%= link_to "Удалить", admin_item_path(i), method: :delete, data: {confirm: "Подтвердите действие удаления заказа"} %></th>
+  </tr>
   <% end %>
-</div>
+</table>

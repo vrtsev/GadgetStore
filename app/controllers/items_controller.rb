@@ -1,9 +1,11 @@
 ﻿class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :visited_items
 
   def index
     if params[:category]
       @items = Item.where("category = #{params[:category]}")
+      render template: "items/#{params[:category]}"
     else
       @items = Item.all
     end
@@ -26,6 +28,7 @@
 
   def show
     @items = Item.all
+    @visited_items << @item.id
   end
 
   private
@@ -38,4 +41,10 @@
     def item_params
       params.require(:item).permit(:name, :price, :description, :available)
     end
+
+    def visited_items
+      session[:visited_items] ||= []
+      @visited_items = session[:visited_items].last(4).reverse
+    end
+
 end

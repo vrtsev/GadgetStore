@@ -1,0 +1,20 @@
+﻿<p id="notice"><%= notice %></p>
+
+<h2 style='text-align: center;'><%= link_to 'Заказы', admin_orders_path, class: 'btn btn-default' %> <b>Список всех корзин </b> </h2>
+
+<table class="table table-bordered">
+  <tr class="active">
+    <th>№</th>
+    <th>Кол-во товаров</th>
+    <th>Создана</th>
+    <th></th>
+  </tr>
+  <% @carts.each do |c| %>
+  <tr>
+    <th><%= c.id %> </th>
+    <th><%= c.items.count %></th>
+    <th><%= c.created_at.strftime("%H:%M %d.%m.%y") %></th>
+    <th><%= link_to "Удалить", admin_cart_path(c), method: :delete, data: {confirm: "Подтвердите действие удаления корзины"} %></th>
+  </tr>
+  <% end %>
+</table>

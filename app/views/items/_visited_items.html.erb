@@ -1,0 +1,16 @@
+﻿<hr />
+
+<h3><b>Вы уже смотрели</b></h3>
+<br />
+<div class="row">
+<% @visited_items.each do |i| %>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= url_to_image(Item.find(i).image) %>    
+      <div class="caption">
+        <h3><%= link_to Item.find(i).name, item_path(i) %></h3>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
