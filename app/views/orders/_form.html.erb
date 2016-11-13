@@ -2,17 +2,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :fullname %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :city %>
-    <%= f.input :delivery_method %>
-    <%= f.input :pay_method %>
-    <%= f.input :order_comment %>
+    <h3>Имя и фамилия</h3><%= f.input :fullname, label: false  %>Обязательно к заполнению при доставке по Украине
+    <h3>Мобильный телефон</h3><%= f.input :phone, label: false, placeholder: "+3 .. "  %>
+    <h3>Электронная почта</h3><%= f.input :email, label: false, placeholder: "example@mail.ru" %>
+    <h3>Ваш город</h3><%= f.input :city, label: false  %>
+    <h3>Способ доставки</h3><%= f.input :delivery_method, label: false  %>
+    <h3>Способ оплаты</h3><%= f.input :pay_method, label: false  %>
+    <h3>Комментарий к заказу</h3><%= f.input :order_comment, label: false  %>
     <%= f.hidden_field :status, :value => "1" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Подтвердить", class: "btn btn-success" %>
   </div>
 <% end %>

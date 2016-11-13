@@ -13,15 +13,36 @@
   	<%= render partial: "layouts/navbar" %>
     <%= render partial: "layouts/header" %>
 
-      <!-- <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p> -->
     <div class='container'>
       <%= yield %>
     </div>
 
   	<div id="footer">
 	  	<hr />
-	  	<div class="container" id="footer">GadgetStore by Vadim, 2016. Все права защищены    E-mail: v.rtsev@gmail.com</div>
+	  	<div class="container" id="footer">
+
+        <div class="row">
+          <div class="col-md-3">
+            <%= image_tag("logo.png", width: '80%', id: "logo_footer") %>
+          </div>
+          <div class="col-md-3">
+            пн. – пт. с 9:00 до 21:00<br/>
+            сб. с 9:00 до 20:00<br/>
+            вс. с 9:00 до 19:00
+          </div>
+          <div class="col-md-3">
+            Тел.: + 38 (044) 520-520-0<br/>
+            e-mail: <a href="#">info@beststore.kh.ua</a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">Пользовательское соглашение</a><br/>
+            2016 Интернет-магазин «GadgetStore»<br/>
+            <a href="#">Html карта сайта</a>
+          </div>
+        </div>
+
+      </div>
+      <br/>
 	  </div>
 
   </body>

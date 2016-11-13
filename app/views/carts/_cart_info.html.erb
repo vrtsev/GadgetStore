@@ -2,15 +2,32 @@
   <div class="col-md-5" style="margin-top: 62px;">
     <div class="panel panel-success">
       <div class="panel-heading">
-        <h3 class="panel-title">Оформить заказ</h3>
+        <h3 class="panel-title"><b>Корзина</b> | Кол-во товаров: <%= @items.count %></h3>
       </div>
       <div class="panel-body">
-        <h3>Кол-во товаров: <%= @items.count %></h3>
-        <h3>Суммарная стоимость: <%= @total %></h3>
-        <h3>Скидка\Акция: </h3>
-        <h3>ИТОГО: ДОРАБОТАТЬ : <%= @total %></h3>
-        <%= link_to 'Оформить заказ', new_order_path, class: 'btn btn-success' %>
-        <%= link_to 'Очистить корзину', cart_clear_path, class: 'btn btn-danger' %>
+
+        <% @items.each do |i| %>
+          <div class="panel">
+
+            <div class="row">
+              <div class="col-md-3"><%= url_to_image(100, i.image) %></div>
+              <div class="col-md-6"><h4><%= i.name %></h4></div>
+              <div class="col-md-3" style="padding: 0%;"><h4><b><%= i.price %></b> грн</h4></div>
+            </div>
+
+            
+
+          </div>
+        <% end %>
+
+        <!-- <hr/> -->
+        <h4>Сумма заказа: <%= @total %></h4>
+        <h4>Скидка\Акция: </h4>
+        <h3>ИТОГО: <%= @total %></h3>
+        <br/>
+        <% unless @items.count == 0 %>
+          <center><%= link_to 'Очистить корзину', cart_clear_path, class: 'btn btn-danger' %></center>
+        <% end %>
       </div>
     </div>
   </div>

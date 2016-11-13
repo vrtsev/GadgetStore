@@ -1,15 +1,13 @@
-﻿<br />
+﻿<h1>Оформление заказа</h1>
+
 <div class="row">
-  <!-- Left side -->
   <div class="col-md-7">
-    <div class="panel panel-default" style="margin-top: 62px;">
-      <div class="panel-heading">
-        <h3 class="panel-title">Введите Ваши персональные данные</h3>
-      </div>
-      <div class="panel-body">
-        <%= render 'form', order: @order %>
-      </div>
-    </div>
+    <% if @items.count == 0 %>
+      <div id='empty_cart_alert' class="alert alert-warning" role="alert"><p style='text-align: center;'>Вы не добавили ни одного товара в корзину<br /><%= link_to "Выбрать товары", items_path %></p></div>
+    <% else %>
+      <h3>Введите Ваши персональные данные</h3>
+      <%= render 'form', order: @order %>
+    <% end %>
   </div>
   <%= render partial: 'carts/cart_info' %>
 </div>

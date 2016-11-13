@@ -16,7 +16,7 @@
 
         <h3>Цена: <%= @item.price %></h3>
         <h3> О товаре: </h3>
-        <%= @item.description %>
+        <%= simple_format(@item.description) %>
 
       </div>
       <div class="panel-footer">
@@ -48,3 +48,28 @@
 <hr>
 
 <br />
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= render partial: 'comments/form' %>
+        </div>
+      </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <% @item.comments.each do |c| %>
+          Написал: <b>%пользователь%</b>&nbsp;&nbsp;&nbsp;Отправлен: <b>%дата создания коментария%</b> 
+          <%= link_to "Удалить", item_comment_path(@item,c.id), class: "btn btn-danger btn-xs", method: :delete %>
+          <div class="well"><%= c.content %></div>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-2"></div>
+</div>

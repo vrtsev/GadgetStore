@@ -25,7 +25,7 @@
 
   def clear
     @cart.items.delete_all
-    redirect_to "/cart"
+    redirect_to "/orders/new"
   end
 
   private

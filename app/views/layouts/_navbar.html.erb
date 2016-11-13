@@ -21,7 +21,7 @@
 	    		<%= link_to "Корзина", show_path, class: "btn btn-success navbar-btn" %>
 	    	<% else %>
 	    		<a class="btn btn-danger navbar-btn" style='color: white;' href="/admin/orders">Админ-панель <span class="badge"><%= Order.count %></span></a>
-	    		<a class="btn btn-success navbar-btn" style='color: white;' href="/cart">Корзина <span class="badge"><%= Cart.find(session[:cart][0]).items.count %></span></a>
+	    		<a class="btn btn-success navbar-btn" style='color: white;' href="/orders/new">Корзина <span class="badge"><%= Cart.find(session[:cart][0]).items.count %></span></a>
 		    <% end %>
 	    </ul>
 	  </div>

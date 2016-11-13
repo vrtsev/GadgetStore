@@ -4,7 +4,11 @@
 
   def index
     if params[:category]
-      @items = Item.where("category = #{params[:category]}")
+      if params[:position]
+        @items = Item.where(category: params[:category], position: params[:position])
+      else
+        @items = Item.where(category: params[:category] )
+      end
       render template: "items/#{params[:category]}"
     else
       @items = Item.all
@@ -27,6 +31,8 @@
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.all
     @items = Item.all
     @visited_items << @item.id
   end
@@ -45,6 +51,8 @@
     def visited_items
       session[:visited_items] ||= []
       @visited_items = session[:visited_items].last(4).reverse
+      # binding.pry 
+      # НЕ ДОДЕЛАНО
     end
 
 end

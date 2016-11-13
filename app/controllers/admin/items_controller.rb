@@ -54,6 +54,6 @@
     end
 
     def item_params
-      params.require(:item).permit(:name, :price, :description, :available, :category, :photo, :image)
+      params.require(:item).permit(:name, :price, :description, :available, :category, :photo, :image, :position)
     end
 end

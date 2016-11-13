@@ -3,18 +3,55 @@
 <h3><b>Категория: Мобильная связь</b></h3>
 <h4>Всего найдено товаров: <%= @items.count %></h4>
 
-<br />
 <div class="row">
-<% @items.each do |i| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-    <%= url_to_image(i.image) %>    
-      <div class="caption">
-        <h3><%= link_to i.name, item_path(i) %></h3>
-      </div>
-    </div>
+  <div class="col-md-3">
+    <br/>
+    <ul class="nav nav-pills nav-stacked" style="margin-left: 0%;">
+      <li role="presentation" class="active"><a href="#">Смартфоны</a></li>
+      <li role="presentation"><a href="#">Мобильные телефоны</a></li>
+      <li role="presentation"><a href="#">Чехлы и защитные пленки</a></li>
+      <li role="presentation"><a href="#">Технические аксессуары</a></li>
+      <li role="presentation"><a href="#">Наушники и колонки</a></li>
+      <li role="presentation"><a href="#">Часы и браслеты</a></li>
+      <li role="presentation"><a href="#">Action-камеры</a></li>
+      <li role="presentation"><a href="#">Радиоуправляемые модели</a></li>
+    </ul>
   </div>
-<% end %>
+  <div class="col-md-9">
+    <br />
+    <div class="row">
+    <% @items.each do |i| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+        <%= url_to_image(250, i.image) %>    
+          <div class="caption">
+            <h3><%= link_to i.name, item_path(i) %></h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+  </div>
 </div>
 
-<%= render partial: 'visited_items' %>
+<hr />
+
+<h3><b>Новинки</b></h3>
+
+<br />
+<div class="row">
+  <% @items.order(created_at: :desc).limit(4).each do |i| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+      <%= url_to_image(250, i.image) %>    
+        <div class="caption">
+          <h3><%= link_to i.name, item_path(i) %></h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= render partial: 'visited_items' unless @visited_items.count == 0 %>
