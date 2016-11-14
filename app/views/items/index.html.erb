@@ -24,26 +24,16 @@
 
 <br />
 <div class="row">
+  <% @promotes.each do |p| %>
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <img src="http://stylus.ua/thumbs/220x280/11/5a/516780.png" />    
+      <%= url_to_image(p.image) %>    
+      <div class="caption">
+        <h3><%= link_to p.name, promote_path(p) %></h3>
+      </div>
     </div>
   </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-    <img src="http://stylus.ua/thumbs/220x280/07/24/516493.png" />    
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-    <img src="http://stylus.ua/thumbs/220x280/60/45/515820.png" />    
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-    <img src="http://stylus.ua/thumbs/220x280/11/5a/516780.png" />
-    </div>
-  </div>
+  <% end %>
 </div>
 <%= render partial: 'visited_items' %>
 

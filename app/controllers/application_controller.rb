@@ -5,7 +5,7 @@
 
   private
 
-	  def cart_init
+    def cart_init
       @s = session[:cart] ||= []
       begin
         Cart.find(session[:cart][0])
@@ -16,6 +16,7 @@
         @cart = Cart.create
         @s << @cart.id
       end
+      @visited_items = session[:visited_items].last(4).reverse if @visited_items
 	  end
 
 	  def calculate_total

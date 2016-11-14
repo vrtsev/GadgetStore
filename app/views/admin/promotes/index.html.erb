@@ -1,0 +1,26 @@
+﻿<p id="notice"><%= notice %></p>
+
+<h2 style='text-align: center;'><%= link_to 'Заказы', admin_orders_path, class: 'btn btn-default' %> <b>Список всех активных акций </b> <%= link_to "Новая акция", new_admin_promote_path, class: 'btn btn-success' %></h2>
+
+<table class="table table-bordered">
+  <tr class="active">
+    <th>№</th>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Категория</th>
+    <th>Кол-во товаров</th>
+    <th>Создана</th>
+    <th></th>
+  </tr>
+  <% @promotes.each do |p| %>
+  <tr>
+    <th><%= p.id %> </th>
+    <th><%= p.name %> </th>
+    <th><%= p.description %> </th>
+    <th><%= p.category %> </th>
+    <th><%= p.items.count %></th>
+    <th><%= p.created_at.strftime("%H:%M %d.%m.%y") %></th>
+    <th><%= link_to "Удалить", admin_promote_path(p), method: :delete, data: {confirm: "Подтвердите действие удаления акции"} %></th>
+  </tr>
+  <% end %>
+</table>

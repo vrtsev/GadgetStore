@@ -9,6 +9,7 @@
     resources :items
     resources :news
     resources :orders
+    resources :promotes
   end
 
   resources :carts
@@ -17,6 +18,7 @@
   post '/cart/add/:id', to: 'carts#add_to_cart'
   delete '/cart/remove/:id', to: 'carts#remove_from_cart'
 
+  resources :promotes
   resources :orders
   resources :items do
     resources :comments

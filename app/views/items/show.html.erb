@@ -32,7 +32,7 @@
           <div class="col-md-2"><%= link_to "Вернуться", root_path, class: "btn btn-default" %></div>
           <div class="col-md-1">
             <% if @item.available %>
-              <%= button_to "В корзину", "/cart/add/#{@item.id}", method: :post %>
+              <%= button_to "В корзину", "/cart/add/#{@item.id}", method: :post, class: 'btn btn-success' %>
             <% else %>
               <%= button_to "Нет в наличии", "/#", class: "btn btn-danger", disabled: "disabled", method: :get %>
             <% end %>
@@ -62,7 +62,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <% @item.comments.each do |c| %>
-          Написал: <b>%пользователь%</b>&nbsp;&nbsp;&nbsp;Отправлен: <b>%дата создания коментария%</b> 
+          Написал: <b><%= c.user %></b>&nbsp;&nbsp;&nbsp;Отправлен: <b><%= c.created_at.strftime("%H:%M %d.%m.%y") %></b> 
           <%= link_to "Удалить", item_comment_path(@item,c.id), class: "btn btn-danger btn-xs", method: :delete %>
           <div class="well"><%= c.content %></div>
           <hr>

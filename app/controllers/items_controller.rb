@@ -13,6 +13,7 @@
     else
       @items = Item.all
     end
+    @promotes = Promote.all.limit(4).order(created_at: :desc)
   end
 
   def hot
