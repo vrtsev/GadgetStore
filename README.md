@@ -1,24 +1,12 @@
-# README
+# GadgetStore (freezed)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Production link: https://vadim-store.herokuapp.com
+* Description: My first web-store
+* Ruby version: 2.3.0
+* Rails version: 5
+* Author : Vadim Ryazantsev (Junior Full-Stack RoR developer)
+* Email: v.rtsev@gmail.com
+* LinkedIn: https://www.linkedin.com/in/vrtsev
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# This project currently freezed
+This project currently freezed and needs general refactoring. Currently, I haven't plans for develop this application
